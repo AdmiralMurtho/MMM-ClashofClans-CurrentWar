@@ -4,7 +4,7 @@
     grid-template-rows: 1fr  1fr;
     column-gap: 10px;
     row-gap: 10px;
-    border: 1px black solid;
+    border: 1px white solid;
     border-radius: 5px;
     margin: 0 auto;
     width: 40%;
@@ -15,7 +15,6 @@
     display: flex;
     align-self: center;
     justify-self: center;
-    background-color: aqua;
 }
 
 .stats {

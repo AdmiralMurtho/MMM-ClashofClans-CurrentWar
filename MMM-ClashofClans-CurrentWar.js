@@ -50,9 +50,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
             var own_name = document.createElement("div")
             own_name.classList.add("CoCCW_element")
             own_name.innerText = "LOVEPARADE"
-            
-            wrapper.appendChild(own_name)
-            /*
+
             var versus = document.createElement("div")
             versus.classList.add("CoCCW_element")
             
@@ -65,7 +63,9 @@ Module.register("MMM-ClashofClans-CurrentWar", {
             var opponent_image = document.createElement("img")
             opponent_image.src = "blablabla"
 
-            versus.appendChild(own_image, versus_title, opponent_image)
+            versus.appendChild(own_image)
+            versus.appendChild(versus_title)
+            versus.appendChild(opponent_image)
 
             var opponent_name = document.createElement("div")
             opponent_name.innerText = "IQ FRIENDS IQ"
@@ -81,7 +81,8 @@ Module.register("MMM-ClashofClans-CurrentWar", {
             own_percent.classList.add("CoCCW_element")
             own_percent.appendChild(document.createElement("23,70%"))
 
-            own_stats.appendChild(own_stars, own_percent)
+            own_stats.appendChild(own_stars)
+            own_stats.appendChild(own_percent)
 
             var remaining_time = document.createElement("span")
             remaining_time.appendChild(document.createTextNode("22H 45M"))
@@ -97,9 +98,15 @@ Module.register("MMM-ClashofClans-CurrentWar", {
             opponent_percent.classList.add("CoCCW_element")
             opponent_percent.appendChild(document.createTextNode("2,34%"))
 
-            opponent_stats.appendChild(opponent_stars, opponent_percent)
+            opponent_stats.appendChild(opponent_stars)
+            opponent_stats.appendChild(opponent_percent)
 
-            wrapper.appendChild(own_name, versus, opponent_name, own_stats, remaining_time, opponent_stats)*/
+            wrapper.appendChild(own_name)
+            wrapper.appendChild(versus)
+            wrapper.appendChild(opponent_name)
+            wrapper.appendChild(own_stats)
+            wrapper.appendChild(remaining_time)
+            wrapper.appendChild(opponent_stats)
 
             //TODO: Hier fehlt ncoh die Implementation der erinnerung, dass ein Spieler noch Angriffe machen muss
 
