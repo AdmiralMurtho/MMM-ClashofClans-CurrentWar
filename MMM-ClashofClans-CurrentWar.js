@@ -102,8 +102,11 @@ Module.register("MMM-ClashofClans-CurrentWar", {
                     opponent_stats.appendChild(opponent_percent)
                     break
                 case('preparation'):
-                    own_stats.innerText = "Preparation"
-                    opponent_stats.innerText = "Preparation"
+                    var preparation = document.createElement("span")
+                    preparation.classList.add("CoCCW_element")
+                    preparation.appendChild(document.createTextNode('Preparation'))
+                    own_stats.appendChild(preparation)
+                    opponent_stats.appendChild(preparation)
                     break
                 default:
                     break;
@@ -151,7 +154,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
         var minutes = 60 * (diff - hours)
         minutes = parseInt(minutes)
 
-        return `${hours} H ${minutes} M`
+        return `${Math.abs(hours)} H ${Math.abs(minutes)} M`
     },
 
     socketNotificationReceived: function(notification, payload) {
