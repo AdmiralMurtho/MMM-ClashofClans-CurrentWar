@@ -1,0 +1,25 @@
+.CoCCW_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CoCCW_underline {
+    border-bottom: white solid 1px;
+}
+
+.CoCCW_half {
+    margin-left: 5%;
+    margin-right: 5%;
+    overflow: visible;
+}
+
+.CoCCW_header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CoCCW_image {
+    width: 40px;
+}
