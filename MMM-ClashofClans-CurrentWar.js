@@ -74,34 +74,41 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
             var own_stats = document.createElement("div")
             own_stats.classList.add("stats")
-
-            var own_stars = document.createElement("span")
-            own_stars.classList.add("CoCCW_element")
-            own_stars.appendChild(document.createTextNode(`${this.own_clan_stars} / ${this.team_size * 3}`))
-
-            var own_percent = document.createElement("span")
-            own_percent.classList.add("CoCCW_element")
-            own_percent.appendChild(document.createTextNode(`${this.own_clan_percentage.toFixed(2)} %`))
-
-            own_stats.appendChild(own_stars)
-            own_stats.appendChild(own_percent)
-
-            var remaining_time = document.createElement("span")
-            remaining_time.appendChild(document.createTextNode(this.checkRemainingTime()))
-
             var opponent_stats = document.createElement("div")
             opponent_stats.classList.add("stats")
 
-            var opponent_stars = document.createElement("span")
-            opponent_stars.classList.add("CoCCW_element", "bigger")
-            opponent_stars.appendChild(document.createTextNode(this.opponent_clan_stars))
+            switch(this.fight_state){
+                case('inWar'):
+                    var own_stars = document.createElement("span")
+                    own_stars.classList.add("CoCCW_element")
+                    own_stars.appendChild(document.createTextNode(`${this.own_clan_stars} / ${this.team_size * 3}`))
 
-            var opponent_percent = document.createElement("span")
-            opponent_percent.classList.add("CoCCW_element")
-            opponent_percent.appendChild(document.createTextNode(`${this.opponent_clan_percentage.toFixed(2)} %`))
+                    var own_percent = document.createElement("span")
+                    own_percent.classList.add("CoCCW_element")
+                    own_percent.appendChild(document.createTextNode(`${this.own_clan_percentage.toFixed(2)} %`))
 
-            opponent_stats.appendChild(opponent_stars)
-            opponent_stats.appendChild(opponent_percent)
+                    own_stats.appendChild(own_stars)
+                    own_stats.appendChild(own_percent)
+
+                    var opponent_stars = document.createElement("span")
+                    opponent_stars.classList.add("CoCCW_element", "bigger")
+                    opponent_stars.appendChild(document.createTextNode(this.opponent_clan_stars))
+
+                    var opponent_percent = document.createElement("span")
+                    opponent_percent.classList.add("CoCCW_element")
+                    opponent_percent.appendChild(document.createTextNode(`${this.opponent_clan_percentage.toFixed(2)} %`))
+
+                    opponent_stats.appendChild(opponent_stars)
+                    opponent_stats.appendChild(opponent_percent)
+                    break
+                default:
+                    own_stats.innerText = "/"
+                    opponent_stats.innerText = "/"
+                    break
+            }
+
+            var remaining_time = document.createElement("span")
+            remaining_time.appendChild(document.createTextNode(this.checkRemainingTime()))
 
             wrapper.appendChild(own_name)
             wrapper.appendChild(versus)
