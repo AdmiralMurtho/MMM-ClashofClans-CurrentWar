@@ -114,6 +114,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
             }
 
             var remaining_time = document.createElement("span")
+            remaining_time.classList.add("CoCCW_element")
             remaining_time.appendChild(document.createTextNode(this.checkRemainingTime()))
 
             wrapper.appendChild(own_name)
