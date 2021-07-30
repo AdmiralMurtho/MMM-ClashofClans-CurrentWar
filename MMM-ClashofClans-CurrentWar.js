@@ -128,6 +128,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
                 this.team_size = payload.teamSize
                 this.start_time = payload.startTime
                 this.end_time = payload.endTime
+                this.loaded = true
                 this.updateDom()
                 break
             default:
