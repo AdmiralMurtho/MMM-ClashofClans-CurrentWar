@@ -165,8 +165,8 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
     dateStringToDate: function(string_date) {
         var month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
-        var date_string = `${string_date.substr(6,2)} ${month[string_date.substr(4,2)]} ${string_date.substr(0,4)} ${string_date.substr(9,2)}:${string_date.substr(11,2)}:00 Z`
-        return Date.parse(date_string)
+        return date_string = `${string_date.substr(6,2)} ${month[string_date.substr(4,2)]} ${string_date.substr(0,4)} ${string_date.substr(9,2)}:${string_date.substr(11,2)}:00 Z`
+        //return Date.parse(date_string)
     },
 
     sheduleUpdate: function() {
