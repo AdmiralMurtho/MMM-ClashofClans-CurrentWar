@@ -47,7 +47,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
             var own_name = document.createElement("div")
             own_name.classList.add("CoCCW_element")
-            own_name.innerText = this.own_clan_name
+            own_name.innerText = this.end_time
 
             var versus = document.createElement("div")
             versus.classList.add("CoCCW_element")
@@ -69,7 +69,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
             var opponent_name = document.createElement("div")
             opponent_name.classList.add("CoCCW_element")
-            opponent_name.innerText = this.opponent_clan_name
+            opponent_name.innerText = this.start_time
 
             var own_stats = document.createElement("div")
             own_stats.classList.add("stats")
