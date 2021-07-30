@@ -43,17 +43,16 @@ Module.register("MMM-ClashofClans-CurrentWar", {
     getDom: function() {
         if(this.loaded) {
 
-            var wrapper = document.createElement("div")
-            wrapper.innerText = "Läuft jetzt"
 
-            /*
             var wrapper = document.createElement("div")
             wrapper.classList.add("CoCCW_container")
 
             var own_name = document.createElement("div")
             own_name.classList.add("CoCCW_element")
             own_name.innerText = "LOVEPARADE"
-
+            
+            wrapper.appendChild(own_name)
+            /*
             var versus = document.createElement("div")
             versus.classList.add("CoCCW_element")
             
