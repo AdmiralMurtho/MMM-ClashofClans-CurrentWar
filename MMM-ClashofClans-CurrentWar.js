@@ -101,10 +101,12 @@ Module.register("MMM-ClashofClans-CurrentWar", {
                     opponent_stats.appendChild(opponent_stars)
                     opponent_stats.appendChild(opponent_percent)
                     break
-                default:
-                    own_stats.innerText = "/"
-                    opponent_stats.innerText = "/"
+                case('preparation'):
+                    own_stats.innerText = "Preparation"
+                    opponent_stats.innerText = "Preparation"
                     break
+                default:
+                    break;
             }
 
             var remaining_time = document.createElement("span")
@@ -138,14 +140,17 @@ Module.register("MMM-ClashofClans-CurrentWar", {
             case ('inWar'):
                 diff = this.end_time - Date.now()
                 break
-            default:
+            case ('preparation'):
                 diff = Date.now() - this.start_time
+                break
+            default:
                 break
         }
         diff /= (1000*60*60)
         var hours = parseInt(diff)
         var minutes = 60 * (diff - hours)
         minutes = parseInt(minutes)
+
         return `${hours} H ${minutes} M`
     },
 
