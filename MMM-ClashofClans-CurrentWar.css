@@ -1,23 +1,31 @@
 .CoCCW_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr  1fr;
+    column-gap: 10px;
+    row-gap: 10px;
+    border: 1px black solid;
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 40%;
+    padding: 10px;
+}
+
+.CoCCW_element {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-self: center;
+    justify-self: center;
+    background-color: aqua;
 }
 
-.CoCCW_underline {
-    border-bottom: white solid 1px;
+.stats {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
 }
 
-.CoCCW_half {
-    margin-left: 5%;
-    margin-right: 5%;
-    overflow: visible;
-}
-
-.CoCCW_header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+span {
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .CoCCW_image {

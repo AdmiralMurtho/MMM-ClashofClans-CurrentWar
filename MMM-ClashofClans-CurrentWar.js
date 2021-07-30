@@ -41,7 +41,70 @@ Module.register("MMM-ClashofClans-CurrentWar", {
     },
 
     getDom: function() {
+        if(this.loaded) {
+            var wrapper = document.createElement("div")
+            wrapper.classList.add("CoCCW_container")
 
+            var own_name = document.createElement("div")
+            own_name.classList.add("CoCCW_element")
+            own_name.innerText = "LOVEPARADE"
+
+            var versus = document.createElement("div")
+            versus.classList.add("CoCCW_element")
+            
+            var own_image = document.createElement("img")
+            own_image.src = "blablabla"
+
+            var versus_title = document.createElement("div")
+            versus_title.innerText = "VS"
+
+            var opponent_image = document.createElement("img")
+            opponent_image.src = "blablabla"
+
+            versus.appendChild(own_image, versus_title, opponent_image)
+
+            var opponent_name = document.createElement("div")
+            opponent_name.innerText = "IQ FRIENDS IQ"
+
+            var own_stats = document.createElement("div")
+            own_stats.classList.add("stats")
+
+            var own_stars = document.createElement("span")
+            own_stars.classList.add("CoCCW_element")
+            own_stars.appendChild(document.createTextNode("8"))
+
+            var own_percent = document.createElement("span")
+            own_percent.classList.add("CoCCW_element")
+            own_percent.appendChild(document.createElement("23,70%"))
+
+            own_stats.appendChild(own_stars, own_percent)
+
+            var remaining_time = document.createElement("span")
+            remaining_time.appendChild(document.createTextNode("22H 45M"))
+
+            var opponent_stats = document.createElement("div")
+            opponent_stats.classList.add("stats")
+
+            var opponent_stars = document.createElement("span")
+            opponent_stars.classList.add("stats")
+            opponent_stars.appendChild(document.createTextNode("1"))
+
+            var opponent_percent = document.createElement("span")
+            opponent_percent.classList.add("CoCCW_element")
+            opponent_percent.appendChild(document.createTextNode("2,34%"))
+
+            opponent_stats.appendChild(opponent_stars, opponent_percent)
+
+            wrapper.appendChild(own_name, versus, opponent_name, own_stats, remaining_time, opponent_stats)
+
+            //TODO: Hier fehlt ncoh die Implementation der erinnerung, dass ein Spieler noch Angriffe machen muss
+
+        } else {
+            var wrapper = document.createElement("div")
+            wrapper.innerText = "Daten werden noch geladen"
+        }
+
+        return wrapper
     },
 
     socketNotificationReceived: function(notification, payload) {
@@ -75,8 +138,8 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
     sheduleUpdate: function() {
         setInterval(() => {
-            this.getPlayerStats()
+            this.getWarStats()
         }, this.config.updateInterval)
-        this.getPlayerStats()
+        this.getWarStats()
     }
 })
