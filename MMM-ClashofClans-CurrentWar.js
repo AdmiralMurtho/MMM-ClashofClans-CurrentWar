@@ -63,7 +63,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
             var opponent_image = document.createElement("img")
             opponent_image.src = this.opponent_clan_src
-            own_image.classList.add("CoCCW_image")
+            opponent_image.classList.add("CoCCW_image")
 
             versus.appendChild(own_image)
             versus.appendChild(versus_title)
