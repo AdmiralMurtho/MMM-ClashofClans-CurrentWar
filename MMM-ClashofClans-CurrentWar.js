@@ -77,7 +77,6 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
             var own_stars = document.createElement("span")
             own_stars.classList.add("CoCCW_element")
-            own_stars.classList.add("bigger")
             own_stars.appendChild(document.createTextNode(`${this.own_clan_stars} / ${this.team_size * 3}`))
 
             var own_percent = document.createElement("span")
