@@ -72,7 +72,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
             var opponent_name = document.createElement("div")
             opponent_name.innerText = "IQ FRIENDS IQ"
 
-            /*
+
             var own_stats = document.createElement("div")
             own_stats.classList.add("stats")
 
@@ -82,11 +82,12 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
             var own_percent = document.createElement("span")
             own_percent.classList.add("CoCCW_element")
-            own_percent.appendChild(document.createElement("23,70%"))
+            own_percent.appendChild(document.createTextNode("23,70%"))
 
             own_stats.appendChild(own_stars)
             own_stats.appendChild(own_percent)
 
+            /*
             var remaining_time = document.createElement("span")
             remaining_time.appendChild(document.createTextNode("22H 45M"))
 
@@ -108,7 +109,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
             wrapper.appendChild(versus)
             wrapper.appendChild(opponent_name)
 
-            //wrapper.appendChild(own_stats)
+            wrapper.appendChild(own_stats)
             //wrapper.appendChild(remaining_time)
             //wrapper.appendChild(opponent_stats)
 
