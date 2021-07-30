@@ -105,8 +105,9 @@ Module.register("MMM-ClashofClans-CurrentWar", {
                     var preparation = document.createElement("span")
                     preparation.classList.add("CoCCW_element")
                     preparation.appendChild(document.createTextNode('Preparation'))
+                    var preparation2 = preparation.cloneNode(true)
                     own_stats.appendChild(preparation)
-                    opponent_stats.appendChild(preparation)
+                    opponent_stats.appendChild(preparation2)
                     break
                 default:
                     break;
