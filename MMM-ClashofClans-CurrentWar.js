@@ -23,6 +23,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
         this.team_size = 0
         this.start_time = null
         this.end_time = null
+        this.fight_state = ''
 
         this.loaded = false
         this.sheduleUpdate()
@@ -75,7 +76,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
             own_stats.classList.add("stats")
 
             var own_stars = document.createElement("span")
-            own_stars.classList.add("CoCCW_element")
+            own_stars.classList.add("CoCCW_element", "bigger")
             own_stars.appendChild(document.createTextNode(this.own_clan_stars))
 
             var own_percent = document.createElement("span")
@@ -86,13 +87,13 @@ Module.register("MMM-ClashofClans-CurrentWar", {
             own_stats.appendChild(own_percent)
 
             var remaining_time = document.createElement("span")
-            remaining_time.appendChild(document.createTextNode(this.checkRemainingTime(this.end_time)))
+            remaining_time.appendChild(document.createTextNode(this.checkRemainingTime()))
 
             var opponent_stats = document.createElement("div")
             opponent_stats.classList.add("stats")
 
             var opponent_stars = document.createElement("span")
-            opponent_stars.classList.add("CoCCW_element")
+            opponent_stars.classList.add("CoCCW_element", "bigger")
             opponent_stars.appendChild(document.createTextNode(this.opponent_clan_stars))
 
             var opponent_percent = document.createElement("span")
@@ -124,8 +125,16 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
     },
 
-    checkRemainingTime: function(unix_timestamp) {
-        var diff = unix_timestamp - Date.now()
+    checkRemainingTime: function() {
+        var diff;
+        switch (this.fight_state) {
+            case ('inWar'):
+                diff = this.end_time - Date.now()
+                break
+            default:
+                diff = Date.now() - this.start_time
+                break
+        }
         diff /= (1000*60*60)
         var hours = parseInt(diff)
         var minutes = 60 * (diff - hours)
@@ -154,6 +163,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
                 this.team_size = payload.teamSize
                 this.start_time = this.dateStringToDate(payload.startTime)
                 this.end_time = this.dateStringToDate(payload.endTime)
+                this.fight_state = payload.state
                 this.loaded = true
                 this.updateDom()
                 break
