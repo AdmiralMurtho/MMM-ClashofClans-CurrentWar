@@ -72,6 +72,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
 
             var opponent_name = document.createElement("div")
+            opponent_name.classList.add("CoCCW_element")
             opponent_name.innerText = this.opponent_clan_name
 
 
@@ -84,7 +85,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
             var own_percent = document.createElement("span")
             own_percent.classList.add("CoCCW_element")
-            own_percent.appendChild(document.createTextNode(this.own_clan_percentage))
+            own_percent.appendChild(document.createTextNode(`${this.own_clan_percentage.toFixed(2)} %`))
 
             own_stats.appendChild(own_stars)
             own_stats.appendChild(own_percent)
@@ -102,7 +103,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
             var opponent_percent = document.createElement("span")
             opponent_percent.classList.add("CoCCW_element")
-            opponent_percent.appendChild(document.createTextNode(this.opponent_clan_percentage))
+            opponent_percent.appendChild(document.createTextNode(`${this.opponent_clan_percentage.toFixed(2)} %`))
 
             opponent_stats.appendChild(opponent_stars)
             opponent_stats.appendChild(opponent_percent)
