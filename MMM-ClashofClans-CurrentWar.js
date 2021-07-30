@@ -47,7 +47,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
             var own_name = document.createElement("div")
             own_name.classList.add("CoCCW_element")
-            own_name.innerText = this.end_time
+            own_name.innerText = this.own_clan_name
 
             var versus = document.createElement("div")
             versus.classList.add("CoCCW_element")
@@ -69,7 +69,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
             var opponent_name = document.createElement("div")
             opponent_name.classList.add("CoCCW_element")
-            opponent_name.innerText = this.start_time
+            opponent_name.innerText = this.opponent_clan_name
 
             var own_stats = document.createElement("div")
             own_stats.classList.add("stats")
@@ -165,8 +165,8 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
     dateStringToDate: function(string_date) {
         var month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
-        return date_string = `${string_date.substr(6,2)} ${month[parseInt(string_date.substr(4,2))]} ${string_date.substr(0,4)} ${string_date.substr(9,2)}:${string_date.substr(11,2)}:00 Z`
-        //return Date.parse(date_string)
+        var date_string = `${string_date.substr(6,2)} ${month[parseInt(string_date.substr(4,2))-1]} ${string_date.substr(0,4)} ${string_date.substr(9,2)}:${string_date.substr(11,2)}:00 Z`
+        return Date.parse(date_string)
     },
 
     sheduleUpdate: function() {
