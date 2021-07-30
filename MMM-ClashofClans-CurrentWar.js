@@ -67,12 +67,12 @@ Module.register("MMM-ClashofClans-CurrentWar", {
             versus.appendChild(versus_title)
             versus.appendChild(opponent_image)
 
-            wrapper.appendChild(own_name)
-            wrapper.appendChild(versus)
 
-            /*var opponent_name = document.createElement("div")
+
+            var opponent_name = document.createElement("div")
             opponent_name.innerText = "IQ FRIENDS IQ"
 
+            /*
             var own_stats = document.createElement("div")
             own_stats.classList.add("stats")
 
@@ -103,13 +103,14 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
             opponent_stats.appendChild(opponent_stars)
             opponent_stats.appendChild(opponent_percent)
-
+            */
             wrapper.appendChild(own_name)
             wrapper.appendChild(versus)
             wrapper.appendChild(opponent_name)
-            wrapper.appendChild(own_stats)
-            wrapper.appendChild(remaining_time)
-            wrapper.appendChild(opponent_stats)*/
+
+            //wrapper.appendChild(own_stats)
+            //wrapper.appendChild(remaining_time)
+            //wrapper.appendChild(opponent_stats)
 
             //TODO: Hier fehlt ncoh die Implementation der erinnerung, dass ein Spieler noch Angriffe machen muss
 
