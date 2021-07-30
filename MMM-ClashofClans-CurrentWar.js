@@ -42,6 +42,11 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
     getDom: function() {
         if(this.loaded) {
+
+            var wrapper = document.createElement("div")
+            wrapper.innerText = "Läuft jetzt"
+
+            /*
             var wrapper = document.createElement("div")
             wrapper.classList.add("CoCCW_container")
 
@@ -95,7 +100,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
             opponent_stats.appendChild(opponent_stars, opponent_percent)
 
-            wrapper.appendChild(own_name, versus, opponent_name, own_stats, remaining_time, opponent_stats)
+            wrapper.appendChild(own_name, versus, opponent_name, own_stats, remaining_time, opponent_stats)*/
 
             //TODO: Hier fehlt ncoh die Implementation der erinnerung, dass ein Spieler noch Angriffe machen muss
 
