@@ -42,8 +42,6 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
     getDom: function() {
         if(this.loaded) {
-
-
             var wrapper = document.createElement("div")
             wrapper.classList.add("CoCCW_container")
 
@@ -69,12 +67,9 @@ Module.register("MMM-ClashofClans-CurrentWar", {
             versus.appendChild(versus_title)
             versus.appendChild(opponent_image)
 
-
-
             var opponent_name = document.createElement("div")
             opponent_name.classList.add("CoCCW_element")
             opponent_name.innerText = this.opponent_clan_name
-
 
             var own_stats = document.createElement("div")
             own_stats.classList.add("stats")
@@ -90,9 +85,8 @@ Module.register("MMM-ClashofClans-CurrentWar", {
             own_stats.appendChild(own_stars)
             own_stats.appendChild(own_percent)
 
-
             var remaining_time = document.createElement("span")
-            remaining_time.appendChild(document.createTextNode("22H 45M"))
+            remaining_time.appendChild(document.createTextNode(this.checkRemainingTime(this.end_time)))
 
             var opponent_stats = document.createElement("div")
             opponent_stats.classList.add("stats")
@@ -126,6 +120,19 @@ Module.register("MMM-ClashofClans-CurrentWar", {
         return wrapper
     },
 
+    checkOwnStats: function() {
+
+    },
+
+    checkRemainingTime: function(unix_timestamp) {
+        var diff = unix_timestamp - Date.now()
+        diff /= (1000*60*60)
+        var hours = parseInt(diff)
+        var minutes = 60 * (diff - hours)
+        minutes = parseInt(minutes)
+        return `${hours} H ${minutes} M`
+    },
+
     socketNotificationReceived: function(notification, payload) {
         switch (notification) {
             case 'CoCCW-GOT-PLAYER-STATS':
@@ -145,8 +152,8 @@ Module.register("MMM-ClashofClans-CurrentWar", {
                 this.opponent_clan_percentage = payload.opponent.destructionPercentage
                 this.opponent_clan_stars = payload.opponent.stars
                 this.team_size = payload.teamSize
-                this.start_time = payload.startTime
-                this.end_time = payload.endTime
+                this.start_time = this.dateStringToDate(payload.startTime)
+                this.end_time = this.dateStringToDate(payload.endTime)
                 this.loaded = true
                 this.updateDom()
                 break
@@ -154,6 +161,12 @@ Module.register("MMM-ClashofClans-CurrentWar", {
                 this.updateDom()
                 break
         }
+    },
+
+    dateStringToDate: function(string_date) {
+        var month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+        var date_string = `${string_date.substr(6,2)} ${month[string_date.substr(4,2)]} ${string_date.substr(0,4)} ${string_date.substr(9,2)}:${string_date.substr(11,2)}:00 Z`
+        return Date.parse(date_string)
     },
 
     sheduleUpdate: function() {
