@@ -49,19 +49,21 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
             var own_name = document.createElement("div")
             own_name.classList.add("CoCCW_element")
-            own_name.innerText = "LOVEPARADE"
+            own_name.innerText = this.own_clan_name
 
             var versus = document.createElement("div")
             versus.classList.add("CoCCW_element")
             
             var own_image = document.createElement("img")
-            own_image.src = "blablabla"
+            own_image.src = this.own_clan_src
+            own_image.classList.add("CoCCW_image")
 
             var versus_title = document.createElement("div")
             versus_title.innerText = "VS"
 
             var opponent_image = document.createElement("img")
-            opponent_image.src = "blablabla"
+            opponent_image.src = this.opponent_clan_src
+            own_image.classList.add("CoCCW_image")
 
             versus.appendChild(own_image)
             versus.appendChild(versus_title)
@@ -70,7 +72,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
 
 
             var opponent_name = document.createElement("div")
-            opponent_name.innerText = "IQ FRIENDS IQ"
+            opponent_name.innerText = this.opponent_clan_name
 
 
             var own_stats = document.createElement("div")
@@ -131,7 +133,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
                 this.updateDom()
                 break
             case 'CoCCW-GOT-WAR-STATS':
-                /*this.own_clan_src = payload.clan.badgeUrls.medium
+                this.own_clan_src = payload.clan.badgeUrls.medium
                 this.own_clan_name = payload.clan.name
                 this.own_clan_attacks = payload.clan.attacks
                 this.own_clan_percentage = payload.clan.destructionPercentage
@@ -143,7 +145,7 @@ Module.register("MMM-ClashofClans-CurrentWar", {
                 this.opponent_clan_stars = payload.opponent.stars
                 this.team_size = payload.teamSize
                 this.start_time = payload.startTime
-                this.end_time = payload.endTime*/
+                this.end_time = payload.endTime
                 this.loaded = true
                 this.updateDom()
                 break
