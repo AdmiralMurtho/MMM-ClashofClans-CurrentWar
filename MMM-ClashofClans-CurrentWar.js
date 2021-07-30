@@ -115,19 +115,19 @@ Module.register("MMM-ClashofClans-CurrentWar", {
                 this.updateDom()
                 break
             case 'CoCCW-GOT-WAR-STATS':
-                this.own_clan_src = payload.clan.badgeUrls.small
+                /*this.own_clan_src = payload.clan.badgeUrls.medium
                 this.own_clan_name = payload.clan.name
                 this.own_clan_attacks = payload.clan.attacks
                 this.own_clan_percentage = payload.clan.destructionPercentage
                 this.own_clan_stars = payload.clan.stars
-                this.opponent_clan_src = payload.opponent.badgeUrls.small
+                this.opponent_clan_src = payload.opponent.badgeUrls.medium
                 this.opponent_clan_name = payload.opponent.name
                 this.opponent_clan_attacks = payload.opponent.attacks
                 this.opponent_clan_percentage = payload.opponent.destructionPercentage
                 this.opponent_clan_stars = payload.opponent.stars
                 this.team_size = payload.teamSize
                 this.start_time = payload.startTime
-                this.end_time = payload.endTime
+                this.end_time = payload.endTime*/
                 this.loaded = true
                 this.updateDom()
                 break
